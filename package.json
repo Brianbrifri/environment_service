@@ -1,0 +1,11 @@
+{
+  "name": "environment-service-slack-bot",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@slack/client": "^3.12.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "request": "^2.81.0"
+  }
+}

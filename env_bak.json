@@ -1,0 +1,34 @@
+{
+  "title": "my_env_json",
+  "env": 
+  [
+    {
+      "name": "dev1",
+      "user": ""
+    },
+    {
+      "name": "dev2",
+      "user": ""
+    },
+    {
+      "name": "dev3",
+      "user": ""
+    },
+    {
+      "name": "qa1",
+      "user": ""
+    },
+    {
+      "name": "qa2",
+      "user": ""
+    },
+    {
+      "name": "qa3",
+      "user": ""
+    },
+    {
+      "name": "staging",
+      "user": ""
+    }
+  ]
+}
