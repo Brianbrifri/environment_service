@@ -13,7 +13,7 @@ jsonHandler.addUser = function(userName, envName, response) {
     } else {
         if(file.env[resultIndex].user !== "") {
             if(file.env[resultIndex].user === userName) {
-                response("You are a real go-getter for trying to take that environment twice!" +
+                response("Such a workaholic you are!" +
                     " unfortunately you can only take it once tho :P")
             } else {
                 response("Sorry, <@" + file.env[resultIndex].user + "> currently has that env. Why don't you " +
@@ -22,7 +22,7 @@ jsonHandler.addUser = function(userName, envName, response) {
         } else {
             file.env[resultIndex].user = userName;
             fs.writeFile(envJson, JSON.stringify(file, null, 2), function() {
-                response("You done good and added yo self to `" + envName + "`!!")
+                response("You are now the proud owner of `" + envName + "`!!")
             });
         }
     }
@@ -39,17 +39,31 @@ jsonHandler.releaseUser = function(userName, envName, response) {
             response("Uhhh...you already released it?? The username for that json.envName is an empty string :/")
         } else {
               if(file.env[resultIndex].user !== userName) {
-                  response("That environment doesn't belong to you! Shame on you...shaaaammeee!!")
+                  response("That environment belongs to `" + file.env[resultIndex].user + "`! Shame on you...shaaaammeee!!")
               } 
               else {
                   file.env[resultIndex].user = "";
                   fs.writeFile(envJson, JSON.stringify(file, String, 2), function() {
-                      response("Now you done RELEASED THE KRAKEN!!!!....I mean `" + envName + "`. k thanx.")
+                      response("Goodbye `" + envName + "`. It was nice knowing you!.")
                   });
               }
           }
       }
 };
+
+jsonHandler.addEnv = function(userName, envName, response) {
+
+  var resultIndex = findEnv(envName);
+
+  if(resultIndex !== -1) {
+    response("The environment already exists, cannot add it twice")
+  } else {
+    file.env.push({"name": "" + envName + "","user": ""})
+    fs.writeFile(envJson, JSON.stringify(file, String, 2), function() {
+      response("<@" + userName + "> has sucessfully added environment `" + envName + "` to the list of environments. Congrats. You like to work hard!")
+    });
+  }
+}
 
 jsonHandler.listAvailable = function () {
     var myCriteria = {"user": ""};

@@ -29,6 +29,10 @@
     {
       "name": "staging",
       "user": ""
+    },
+    {
+      "name": "uidev",
+      "user": ""
     }
   ]
 }

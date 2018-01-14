@@ -3,8 +3,8 @@ var request = require('request');
 var jsonHandler = require('./jsonHandler');
 const bodyParser = require('body-parser');
 
-var clientId = '';
-var clientSecret = '';
+var clientId = '3055224084.234147642579';
+var clientSecret = '20fd767707ccda964700d969a629ad07';
 
 var app = express();
 app.use(bodyParser.json());
@@ -54,6 +54,17 @@ app.post('/take', function(req, res) {
               text: reply
           }
       );
+  });
+});
+
+app.post('/add', function(req, res) {
+  jsonHandler.addEnv(req.body.user_name, req.body.text, function(reply) {
+    res.json(
+      {
+        response_type: 'in_channel',
+        text: reply
+      }
+    )
   });
 });
 
