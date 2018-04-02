@@ -33,6 +33,14 @@
     {
       "name": "uidev",
       "user": ""
+    },
+    {
+      "name": "uiqa",
+      "user": ""
+    },
+    {
+      "name": "upstream",
+      "user": ""
     }
-  ]
+]
 }
